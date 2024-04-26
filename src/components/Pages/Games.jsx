@@ -8,12 +8,12 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-
+import Roulette from './Games/Roulette';
 
 const Games = () => {
     return (
         <div>
-                <Carousel
+                {/* <Carousel
                 opts={{
                     align: "start",
                 }}
@@ -34,7 +34,8 @@ const Games = () => {
                 </CarouselContent>
                 <CarouselPrevious />
                 <CarouselNext />
-                </Carousel>
+                </Carousel> */}
+                <Roulette />
         </div>
     );
 };

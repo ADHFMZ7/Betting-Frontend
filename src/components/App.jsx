@@ -4,6 +4,9 @@ import NotFound from './NotFound.jsx'
 import Profile from './Pages/Profile.jsx'
 import Index from './Pages/Index.jsx'
 import Games from './Pages/Games.jsx'
+// import Blackjack from './Pages/Games/Blackjack.jsx'
+import Roulette from './Pages/Games/Roulette.jsx'
+// import Slots from './Pages/Games/Slots.jsx'
 
 import ThemeProvider from "./ThemeProvider.jsx"
 import { ModeToggle } from './ModeToggle.jsx'
@@ -78,6 +81,20 @@ const router = createBrowserRouter([{
   element: <ProtectedRoute>
             <Games />
           </ProtectedRoute>,
+    children: [
+      // {
+      //   path: 'poker',
+      //   element: <Poker />,
+      // },
+      // {
+      //   path: 'blackjack',
+      //   element: <Blackjack />,
+      // },
+      {
+        path: 'roulette',
+        element: <Roulette />,
+      },
+    ],
 }
 ])
 

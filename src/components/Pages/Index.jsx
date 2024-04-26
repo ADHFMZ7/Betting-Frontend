@@ -4,12 +4,12 @@ import Login from './Login.jsx'
 import { useAuth } from '../AuthProvider.jsx'
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
-
 import {
   BrowserRouter as Router,
   Link
 } from "react-router-dom";
 import Navbar from '../Navbar.jsx';
+import { ModeToggle } from '../ModeToggle.jsx'
 
 function Index() {
 
@@ -31,7 +31,6 @@ function Index() {
             <h2 className="text-2xl font-bold mb-2">About BuffyBets</h2>
             <p className="text-gray-700 dark:text-gray-300">Experience the thrill of gambling with BuffyBets. We offer a wide range of exciting games and betting options to keep you entertained.</p>
           </section>
-  
           <section className="mt-8">
             <h2 className="text-2xl font-bold mb-2">Sign Up Now</h2>
             <p className="text-gray-700 dark:text-gray-300 mb-4">Join BuffyBets today and start your gambling journey. Sign up now to enjoy exclusive bonuses and promotions.</p>
@@ -44,6 +43,7 @@ function Index() {
             <Link to="/profile" className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Profile</Link>
               <Link to="/games" className="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Games</Link>
             </>}
+            <ModeToggle />
           </section>
         </main>
       </div>
