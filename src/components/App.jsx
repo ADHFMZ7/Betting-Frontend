@@ -7,6 +7,7 @@ import Games from './Pages/Games.jsx'
 // import Blackjack from './Pages/Games/Blackjack.jsx'
 import Roulette from './Pages/Games/Roulette.jsx'
 // import Slots from './Pages/Games/Slots.jsx'
+import DailySpin from './Pages/Games/DailySpin.jsx'
 
 import ThemeProvider from "./ThemeProvider.jsx"
 
@@ -63,6 +64,12 @@ const router = createBrowserRouter([{
         <Roulette />
       </ProtectedRoute>,
     },
+  {
+    path: '/games/spin',
+    element: <ProtectedRoute>
+      <DailySpin />
+    </ProtectedRoute>,
+  },
 ])
 
 
