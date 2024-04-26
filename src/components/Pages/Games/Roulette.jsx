@@ -9,16 +9,18 @@ const data = [
   { option: '3', style: { backgroundColor: 'red' } },
 ]
 
-export default function Roulette(){
+export default function SpinWheel(props){
+
     const [mustSpin, setMustSpin] = useState(false);
     const [prizeNumber, setPrizeNumber] = useState(0);
   
     const handleSpinClick = () => {
       if (!mustSpin) {
-        const newPrizeNumber = Math.floor(Math.random() * data.length);
-        setPrizeNumber(newPrizeNumber);
+
+
+        setPrizeNumber(props.prizeNumber);
         setMustSpin(true);
-        alert(`You won ${data[newPrizeNumber].option}`)
+        alert(`You won ${props.prizes[newPrizeNumber].option}`)
       }
     }
   

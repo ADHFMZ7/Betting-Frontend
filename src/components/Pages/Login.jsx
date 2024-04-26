@@ -10,6 +10,10 @@ const Login = () => {
   const { login, token } = useAuth();
   const navigate = useNavigate();
 
+  if (token) {
+    navigate('/', { replace: true });
+  }
+
   const handleSubmitEvent = (e) => {
     e.preventDefault();
 
@@ -17,7 +21,6 @@ const Login = () => {
 
     login(input.username, input.password);
 
-    // TODO: Redirect to profile page and display user information
     navigate('/', { replace: true });
 
   };

@@ -53,7 +53,7 @@ export default function ProfileDropdown() {
           <DropdownMenuLabel>My Account</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
-            <DropdownMenuItem>
+            <DropdownMenuItem onSelect={() => {navigate("/profile")}}>
               <User className="mr-2 h-4 w-4" />
               <span>Profile</span>
               <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
@@ -67,7 +67,7 @@ export default function ProfileDropdown() {
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuItem onSelect={()=>{
-            logout; 
+            logout(); 
             navigate('/login');
             }}>
             <LogOut className="mr-2 h-4 w-4" />
