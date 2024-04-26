@@ -9,7 +9,6 @@ import Roulette from './Pages/Games/Roulette.jsx'
 // import Slots from './Pages/Games/Slots.jsx'
 
 import ThemeProvider from "./ThemeProvider.jsx"
-import { ModeToggle } from './ModeToggle.jsx'
 
 import AuthProvider from './AuthProvider.jsx';
 import ProtectedRoute from './ProtectedRoute.jsx';
@@ -18,45 +17,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Navbar from './Navbar.jsx'
 
-
-// const router = createBrowserRouter([
-//   {
-//     id: "root",
-//     path: "/",
-//     loader() {
-//       // Our root route always provides the user, if logged in
-//       return { user: fakeAuthProvider.username };
-//     },
-//     Component: Layout,
-//     children: [
-//       {
-//         index: true,
-//         Component: PublicPage,
-//       },
-//       {
-//         path: "/login",
-//         action: loginAction,
-//         loader: loginLoader,
-//         Component: LoginPage,
-//       },
-//       {
-//         path: "protected",
-//         loader: protectedLoader,
-//         Component: ProtectedPage,
-//       },
-//     ],
-//   },
-//   {
-//     path: "/logout",
-//     async action() {
-//       // We signout in a "resource route" that we can hit from a fetcher.Form
-//       await fakeAuthProvider.signout();
-//       return redirect("/");
-//     },
-//   },
-// ]);
 
 const router = createBrowserRouter([{
   path: '/',
@@ -81,21 +42,27 @@ const router = createBrowserRouter([{
   element: <ProtectedRoute>
             <Games />
           </ProtectedRoute>,
-    children: [
-      // {
-      //   path: 'poker',
-      //   element: <Poker />,
-      // },
-      // {
-      //   path: 'blackjack',
-      //   element: <Blackjack />,
-      // },
-      {
-        path: 'roulette',
-        element: <Roulette />,
-      },
-    ],
-}
+    // children: [
+    //   // {
+    //   //   path: 'poker',
+    //   //   element: <Poker />,
+    //   // },
+    //   // {
+    //   //   path: 'blackjack',
+    //   //   element: <Blackjack />,
+    //   // },
+    //   {
+    //     path: 'roulette',
+    //     element: <Roulette />,
+    //   },
+  // ],
+    },
+    {
+      path: '/games/roulette',
+      element: <ProtectedRoute>
+        <Roulette />
+      </ProtectedRoute>,
+    },
 ])
 
 

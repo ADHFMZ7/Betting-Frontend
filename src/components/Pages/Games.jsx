@@ -10,14 +10,15 @@ import {
 } from "@/components/ui/carousel"
 import Roulette from './Games/Roulette';
 import {cn} from "@/lib/utils"
+import { Separator } from "@/components/ui/separator"
 
 const Games = () => {
 
     const games = [
-        { title: "Blackjack", href: "/games/blackjack", description: "Play blackjack" },
-        { title: "Slots", href: "/games/slots", description: "Try your luck with the slots!" },
-        { title: "Daily Spin", href: "/games/spin", description: "Spin the wheel!" },
-        { title: "Poker", href: "/games/poker", description: "Texas Hold'em Poker" },
+        { title: "Blackjack", href: "/games/blackjack", description: "Play blackjack", cover: "" },
+        { title: "Slots", href: "/games/slots", description: "Try your luck with the slots!", cover: ""},
+        { title: "Daily Spin", href: "/games/spin", description: "Spin the wheel!", cover: ""},
+        { title: "Poker", href: "/games/poker", description: "Texas Hold'em Poker", cover: ""},
     ]
 
     return (
@@ -39,8 +40,9 @@ const Games = () => {
           />
 
         </CardContent>
-        <CardFooter className="p-3">
-          <div className="text-xs font-semibold">{_.title}</div>
+        <CardFooter className="p-3 flex flex-col">
+          <div className="text-s font-semibold">{_.title}</div>
+          <Separator />
           <div className="text-xs text-gray-500 dark:text-gray-400">{_.description}</div>
         </CardFooter>
       </Card>
