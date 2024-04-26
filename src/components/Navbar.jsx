@@ -82,7 +82,7 @@ export default function Navbar() {
 
       <div className="basis-1/3 flex justify-end m-2">
         {user === null ?       <Link
-        href="login"
+        to="/login"
         className={cn(
           buttonVariants({ variant: "ghost" }),
           "mr-8 top-4 right-4 md:left-8 md:top-8 "

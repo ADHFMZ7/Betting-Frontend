@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from '../AuthProvider';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [input, setInput] = useState({
@@ -55,6 +56,9 @@ const Login = () => {
           onChange={handleInput}
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         />
+      </div>
+      <div>
+        <p className="text-sm text-gray-700 dark:text-gray-300">Don't have an account? <Link to="/signup" className="text-blue-500">Sign up</Link></p>
       </div>
       <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
     </form>
