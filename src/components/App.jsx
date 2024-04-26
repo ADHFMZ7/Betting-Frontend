@@ -1,6 +1,6 @@
 import Signup from './Pages/Signup.jsx'
 import Login from './Pages/Login.jsx'
-import NotFound from './NotFound.jsx'
+import NotFound from './Pages/NotFound.jsx'
 import Profile from './Pages/Profile.jsx'
 import Index from './Pages/Index.jsx'
 import Games from './Pages/Games.jsx'
