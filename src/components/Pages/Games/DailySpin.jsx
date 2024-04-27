@@ -2,17 +2,62 @@ import React, { useEffect } from 'react'
 import { Wheel } from 'react-custom-roulette'
 import { useState } from 'react'
 import { useAuth } from '../../AuthProvider';
+import Spinner from '../../Spinner';
 
-export default function DailySpin(props){
+const data = [
+  { option: '0' },
+  { option: '1' },
+  { option: '2' },
+]
 
-    const [mustSpin, setMustSpin] = useState(false);
-    const [options, setOptions] = useState([]);
-    const [prizeNumber, setPrizeNumber] = useState(0);
+// export default function DailySpin(){
 
-    const {token} = useAuth();
+//     // const [mustSpin, setMustSpin] = useState(false);
+//     const [options, setOptions] = useState([]);
+//     const [prizeNumber, setPrizeNumber] = useState(0);
 
-    console.log(token);
+//     const {token} = useAuth();
 
+//     useEffect(() => {
+//         fetch('http://127.0.0.1:8000/game/daily-spin', {
+//             method: 'GET',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'Authorization': 'Bearer ' + token, 
+//             },
+//         }).then(response => response.json()).then(data => {
+//             setPrizeNumber(data.rand_credits);
+//             // fix the data to match the structure of the data in Spinner.jsx
+//             data.options = data.options.map(option => {
+//                 return {option: option}
+//             });
+//             console.log(data.options);
+//             setOptions(data.options);
+//             console.log(options);
+//         }
+//         );
+//     }
+//     );
+  
+//     return (
+//       <>
+//         {console.log(options)}
+//         <Spinner options={options} prizeNumber={prizeNumber} />
+//       </>
+//     )
+//   }
+
+
+export default function DailySpin() {
+    const [options, setOptions] = useState([
+      { option: '0' },
+      { option: '1' },
+      { option: '2' },
+    ]);
+    const [prizeNumber, setPrizeNumber] = useState(null);
+
+    const { token } = useAuth();
+  
     useEffect(() => {
         fetch('http://127.0.0.1:8000/game/daily-spin', {
             method: 'GET',
@@ -21,36 +66,18 @@ export default function DailySpin(props){
                 'Authorization': 'Bearer ' + token, 
             },
         }).then(response => response.json()).then(data => {
-            console.log(data);
-            setPrizeNumber(data.rand_credits);
+            setPrizeNumber(data.credits);
+            // fix the data to match the structure of the data in Spinner.jsx
+            data.options = data.options.map(option => {
+                return {option: option}
+            });
             setOptions(data.options);
-        }
-        );
-    }
-    );
-
-
-
-    const handleSpinClick = () => {
-      if (!mustSpin) {
-        setPrizeNumber(1);
-        setMustSpin(true);
-        alert(`You won ${props.prizes[PrizeNumber].option}`)
-      }
-    }
+          });
+      }, []); 
   
     return (
       <>
-        <Wheel
-          mustStartSpinning={mustSpin}
-          prizeNumber={prizeNumber}
-          data={options}
-  
-          onStopSpinning={() => {
-            setMustSpin(false);
-          }}
-        />
-        <button onClick={handleSpinClick}>SPIN</button>
+        <Spinner options={options} prizeNumber={prizeNumber} />
       </>
     )
   }

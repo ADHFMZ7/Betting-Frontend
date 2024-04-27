@@ -42,7 +42,7 @@ const data = [
   { option: '1', textColor: 'white', style: { backgroundColor: 'black'}},
 ]
 
-export default function Roulette(props){
+export default function Roulette(){
 
     const [mustSpin, setMustSpin] = useState(false);
     const [prizeNumber, setPrizeNumber] = useState(0);
@@ -62,9 +62,9 @@ export default function Roulette(props){
         }
         );
 
-        setPrizeNumber(props.prizeNumber);
+        setPrizeNumber(prizeNumber);
         setMustSpin(true);
-        alert(`You won ${props.prizes[PrizeNumber].option}`)
+        alert(`You won ${props.prizes[prizeNumber].option}`)
       }
     }
   
