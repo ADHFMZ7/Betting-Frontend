@@ -65,7 +65,7 @@ export default function Navbar() {
           console.log(balance);
         })
     }
-  })
+  }), [token, id];
 
 
   return (
