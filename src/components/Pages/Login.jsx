@@ -52,8 +52,8 @@ const Login = () => {
     <Card className="w-[350px] ">
       <form onSubmit={handleSubmitEvent} className="max-w-sm mx-auto">
       <CardHeader>
-        <CardTitle>Create project</CardTitle>
-        <CardDescription>Deploy your new project in one-click.</CardDescription>
+        <CardTitle>Log In</CardTitle>
+        <CardDescription>Welcome Back! Log in to start playing.</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="mb-4">
