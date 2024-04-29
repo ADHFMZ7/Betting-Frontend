@@ -10,8 +10,27 @@ import Navbar from '../Navbar.jsx';
 
 const Profile = () => {
 
-    const { logout, token, user } = useAuth();
+    const { logout, token } = useAuth();
     const navigate = useNavigate();
+    const [user, setUser] = useState(
+        null
+    );
+    const id = parseJwt(token).id;
+
+    React.useEffect(() => {
+        if (token) {
+            fetch("http://127.0.0.1:8000/user/" + id, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    setUser(data);
+                });
+        }
+    }, [token, id]);
+
 
     const handleLogout = () => {
         logout(); 

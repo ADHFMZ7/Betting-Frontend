@@ -28,8 +28,8 @@ const Games = () => {
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
 
-        {games.map((_, index) => (
-        <Card className="border-2 border-gray-200 dark:border-gray-800">
+        {games.map((game, index) => (
+        <Card key={game.title} className="border-2 border-gray-200 dark:border-gray-800">
         <CardContent className="flex aspect-video p-4 items-center justify-center">
           <img
             alt="Game cover"
@@ -41,9 +41,9 @@ const Games = () => {
 
         </CardContent>
         <CardFooter className="p-3 flex flex-col">
-          <div className="text-s font-semibold">{_.title}</div>
+          <div className="text-s font-semibold">{game.title}</div>
           <Separator />
-          <div className="text-xs text-gray-500 dark:text-gray-400">{_.description}</div>
+          <div className="text-xs text-gray-500 dark:text-gray-400">{game.description}</div>
         </CardFooter>
       </Card>
                     ))}
