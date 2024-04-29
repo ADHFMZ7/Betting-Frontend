@@ -54,7 +54,7 @@ export default function DailySpin() {
       { option: '1' },
       { option: '2' },
     ]);
-    const [prizeNumber, setPrizeNumber] = useState(null);
+    const [prizeNumber, setPrizeNumber] = useState(0);
 
     const { token } = useAuth();
   
@@ -66,7 +66,7 @@ export default function DailySpin() {
                 'Authorization': 'Bearer ' + token, 
             },
         }).then(response => response.json()).then(data => {
-            setPrizeNumber(data.credits);
+            setPrizeNumber(data.win_index);
             // fix the data to match the structure of the data in Spinner.jsx
             data.options = data.options.map(option => {
                 return {option: option}
