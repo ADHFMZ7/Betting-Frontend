@@ -14,6 +14,8 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+import { useState } from "react"
+import { parseJwt } from "../utility.js"
 
 const components = [
   {
@@ -44,7 +46,27 @@ const components = [
 
 export default function Navbar() {
 
-  const { user, token} = useAuth();
+  const {user, token} = useAuth();
+  const [balance, setBalance] = useState();
+  // Fetch user balance from API
+
+  const id = parseJwt(token).id;
+
+  React.useEffect(() => {
+    if (token) {
+      fetch("http://127.0.0.1:8000/user/" + id, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setBalance(data.credits);
+          console.log(balance);
+        })
+    }
+  })
+
 
   return (
     <div className="flex flex-row top-0 h-14">
@@ -81,6 +103,8 @@ export default function Navbar() {
 
 
       <div className="basis-1/3 flex justify-end m-2">
+        <h1 className="mr-2 mt-2">${balance}</h1>
+
         {user === null ?       <Link
         to="/login"
         className={cn(

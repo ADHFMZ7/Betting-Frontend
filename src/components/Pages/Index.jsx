@@ -38,7 +38,6 @@ function Index() {
           <section className="mt-8">
               <p className="text-gray-700 dark:text-gray-300 mb-4">Join BuffyBets today and start your gambling journey. Sign up now to enjoy exclusive bonuses and promotions.</p>
           </section>
-            <ModeToggle />
         </main>
         </>
         : 
