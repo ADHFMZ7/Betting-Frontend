@@ -6,7 +6,7 @@ import Index from './Pages/Index.jsx'
 import Games from './Pages/Games.jsx'
 // import Blackjack from './Pages/Games/Blackjack.jsx'
 import Roulette from './Pages/Games/Roulette.jsx'
-// import Slots from './Pages/Games/Slots.jsx'
+import Slots from './Pages/Games/Slots.jsx'
 import DailySpin from './Pages/Games/DailySpin.jsx'
 import Settings from './Pages/Settings.jsx'
 import ThemeProvider from "./ThemeProvider.jsx"
@@ -38,11 +38,11 @@ const router = createBrowserRouter([{
   <Profile />
 </ProtectedRoute>,
 },
-{
-  path: '/games',
-  element: <ProtectedRoute>
-            <Games />
-          </ProtectedRoute>,
+// {
+//   path: '/games',
+//   element: <ProtectedRoute>
+//             <Games />
+//           </ProtectedRoute>,
     // children: [
     //   // {
     //   //   path: 'poker',
@@ -57,7 +57,7 @@ const router = createBrowserRouter([{
     //     element: <Roulette />,
     //   },
   // ],
-    },
+    // },
     {
       path: '/games/roulette',
       element: <ProtectedRoute>
@@ -71,11 +71,18 @@ const router = createBrowserRouter([{
     </ProtectedRoute>,
   },
   {
+    path: '/games/slots',
+    element: <ProtectedRoute>
+      <Slots />
+    </ProtectedRoute>,
+  },
+  {
     path: '/settings',
     element: <ProtectedRoute>
       <Settings />
     </ProtectedRoute>,
   },
+
 ])
 
 

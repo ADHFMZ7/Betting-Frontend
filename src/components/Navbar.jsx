@@ -37,10 +37,10 @@ const components = [
       "Spin the wheel!",
   },
   {
-    title: "Poker",
-    href: "/games/poker",
-    description:
-      "Texas Hold'em Poker",
+    title: "Roulette",
+    href: "/games/roulette",
+    description: 
+      "Bet on the roulette wheel!",
   },
 ]
 

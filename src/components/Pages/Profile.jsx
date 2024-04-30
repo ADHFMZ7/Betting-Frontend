@@ -9,7 +9,7 @@ import { Link } from "react-router-dom"
 import Navbar from '../Navbar.jsx';
 
 const Profile = () => {
-
+    const [transactions, setTransactions] = useState([]);
     const { logout, token } = useAuth();
     const navigate = useNavigate();
     const [user, setUser] = useState(
@@ -29,6 +29,15 @@ const Profile = () => {
                     setUser(data);
                 });
         }
+        fetch("http://127.0.0.1:8000/user/transactions/", {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                setTransactions(data);
+            });
     }, [token, id]);
 
 
@@ -74,7 +83,7 @@ const Profile = () => {
           </div>
           <Separator />
           <div className="mt-6">
-            <h2 className="text-lg font-bold mb-4">Transaction History</h2>
+            <h2 className="text-lg font-bold mb-4">Betting History</h2>
             <Table>
               <TableHeader>
                 <TableRow>
@@ -84,26 +93,19 @@ const Profile = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                <TableRow>
-                  <TableCell>April 15, 2023</TableCell>
-                  <TableCell>Deposit</TableCell>
-                  <TableCell>$500</TableCell>
+                {console.log(transactions) }
+              {transactions.map((transaction) => (
+                <TableRow key={transaction.id}>
+                  <TableCell>{transaction.date}</TableCell>
+                  <TableCell>{transaction.game}</TableCell>
+                  <TableCell>${transaction.amount}</TableCell>
                 </TableRow>
-                <TableRow>
-                  <TableCell>April 10, 2023</TableCell>
-                  <TableCell>Withdrawal</TableCell>
-                  <TableCell>-$200</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>April 5, 2023</TableCell>
-                  <TableCell>Bonus</TableCell>
-                  <TableCell>$50</TableCell>
-                </TableRow>
+              ))}
               </TableBody>
-            </Table>
+              </Table>
           </div>
           <Separator />
-          <div className="mt-6">
+          {/* <div className="mt-6">
             <h2 className="text-lg font-bold mb-4">Account Settings</h2>
             <div className="grid grid-cols-2 gap-4">
               <Link className="flex items-center gap-2 text-indigo-500 hover:text-indigo-600" href="#">
@@ -123,7 +125,7 @@ const Profile = () => {
                 <span>Account Settings</span>
               </Link>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
