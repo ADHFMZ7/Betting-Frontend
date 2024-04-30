@@ -30,6 +30,9 @@ export default function AuthProvider({ children }) {
         // TODO: Handle response status codes. This assumes a successful response.
 
         const authResponse = await response.json();
+        if (response.status !== 200) {
+          throw new Error("Invalid username or password");
+        }
         const authToken = authResponse.access_token;
         const authenticatedUser = parseJwt(authToken);
 
@@ -37,7 +40,6 @@ export default function AuthProvider({ children }) {
 
         setUser(authenticatedUser);
         setToken(authToken);
-        
     };
   
     const logout = () => {

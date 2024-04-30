@@ -9,16 +9,21 @@ import { Link } from "react-router-dom"
 import Navbar from '../Navbar.jsx';
 
 const Profile = () => {
-    const [transactions, setTransactions] = useState([]);
+    const [transactions, setTransactions] = useState([{
+        id: 0,
+        date: "",
+        game: "",
+        amount: 0
+    }]);
     const { logout, token } = useAuth();
     const navigate = useNavigate();
     const [user, setUser] = useState(
         null
     );
-    const id = parseJwt(token).id;
 
     React.useEffect(() => {
         if (token) {
+            const id = parseJwt(token).id;
             fetch("http://127.0.0.1:8000/user/" + id, {
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -28,7 +33,6 @@ const Profile = () => {
                 .then((data) => {
                     setUser(data);
                 });
-        }
         fetch("http://127.0.0.1:8000/user/transactions/", {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -38,7 +42,8 @@ const Profile = () => {
             .then((data) => {
                 setTransactions(data);
             });
-    }, [token, id]);
+      }
+    }, [token]);
 
 
     const handleLogout = () => {

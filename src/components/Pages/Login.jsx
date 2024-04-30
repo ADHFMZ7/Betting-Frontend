@@ -19,6 +19,7 @@ const Login = () => {
     username: "",
     password: "",
   });
+  const [error, setError] = useState(null);
   const { login, token } = useAuth();
   const navigate = useNavigate();
 
@@ -26,14 +27,17 @@ const Login = () => {
     navigate('/', { replace: true });
   }
 
-  const handleSubmitEvent = (e) => {
+  const handleSubmitEvent = async (e) => {
     e.preventDefault();
 
-    // TODO: Handle login errors
-
-    login(input.username, input.password);
-
-    navigate('/', { replace: true });
+    try {
+      await login(input.username, input.password); 
+      navigate('/', { replace: true });
+    }
+    catch (error) {
+      console.log("WRORO")
+      setError(error.message);
+    }
 
   };
 
@@ -78,6 +82,7 @@ const Login = () => {
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         />
       </div>
+
       <div>
         <p className="text-sm text-gray-700 dark:text-gray-300">Don't have an account? <Link to="/signup" className="text-blue-500">Sign up</Link></p>
       </div>
@@ -87,12 +92,19 @@ const Login = () => {
         <Button variant="outline">Cancel</Button>
         <Button type="submit">Login</Button>
       </div>
+
       </CardFooter>
     </form>
 
     </Card>
 
      <p className="text-sm text-gray-700 dark:text-gray-300">Don't have an account? <Link to="/signup" className="text-blue-500">Sign up</Link></p>
+     {error && (
+                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                  <strong className="font-bold">Error!</strong>
+                  <span className="block sm:inline"> {error}</span>
+                </div>
+              )}
     </div>
   );
 };
