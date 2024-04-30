@@ -50,10 +50,10 @@ export default function Navbar() {
   const [balance, setBalance] = useState();
   // Fetch user balance from API
 
-  const id = parseJwt(token).id;
 
   React.useEffect(() => {
     if (token) {
+      const id = parseJwt(token).id;
       fetch("http://127.0.0.1:8000/user/" + id, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -65,7 +65,7 @@ export default function Navbar() {
           console.log(balance);
         })
     }
-  }), [token, id];
+  }), [token];
 
 
   return (
@@ -103,14 +103,16 @@ export default function Navbar() {
 
 
       <div className="basis-1/3 flex justify-end m-2">
-        <h1 className="mr-2 mt-2">${balance}</h1>
 
         {user === null ?       <Link
         to="/login"
         className={cn(
           buttonVariants({ variant: "ghost" }),
           "mr-8 top-4 right-4 md:left-8 md:top-8 "
-        )}>Login</Link> : <ProfileDropdown />}
+        )}>Login</Link> : <>
+        <h1 className="mr-2 mt-2">${balance}</h1>
+        <ProfileDropdown />
+        </>}
       </div>
       
     </div>
