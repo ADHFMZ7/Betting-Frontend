@@ -7,7 +7,7 @@ import 'react-roulette-pro/dist/index.css';
 
 const prizes = [...Array(37).keys()].map((index) => ({
     id: index,
-    image: "../../assets/roulette/" + index + ".png",
+    image: "https://github.com/ADHFMZ7/Betting-Frontend/blob/main/src/assets/roulette/" + index + ".png?raw=true",
 }));
 
 const reproductionArray = (array = [], length = 0) => [
