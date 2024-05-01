@@ -2,6 +2,8 @@ import React from 'react';
 import { ModeToggle } from '../ModeToggle';
 import Navbar from '../Navbar';
 import { useAuth } from '../AuthProvider';
+import { cn } from "@/lib/utils"
+import { buttonVariants } from "@/components/ui/button"
 
 const Settings = () => {
     const { token } = useAuth();
@@ -11,7 +13,12 @@ const Settings = () => {
             <Navbar /> 
             <div>
                 <h1>Settings</h1>
-                <button onClick={
+                <button 
+                className={cn(
+                buttonVariants({ variant: "ghost" }),
+                "mr-8 top-4 right-4 md:left-8 md:top-8 ")}
+                    
+                onClick={
                     () => {
                         fetch('https://ootd.aldasouqi.com:8000/game/daily-login', {
                             method: 'POST',
@@ -24,7 +31,7 @@ const Settings = () => {
                         }
                         );
                     }
-                }></button>
+                }>FREE MONEY!!!!</button>
             </div>
         </>
     );
