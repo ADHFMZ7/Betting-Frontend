@@ -54,6 +54,7 @@ const Roulette = () => {
   const [activeChip, setActiveChip] = useState(Object.keys(chipsMap)[0]);
   const [shouldShowData, setShouldShowData] = useState(false);
   const [winningBet, setWinningBet] = useState(null);
+  const [start, setStart] = useState(false);
   const { token } = useAuth();
 
   const [isRouletteWheelSpinning, setIsRouletteWheelSpinning] = useState(false);
@@ -96,11 +97,10 @@ const Roulette = () => {
       }).then((response) => response.json());
       const bet = response.winning_number;
       setWinningBet(response.winning_number);
+      setStart(true);
       // response.winning_number;
   
       console.info('gotta win bet', bet);
-      alert("Spun a " + bet + 
-      " and you won " + response.winnings + " chips!")
       // setRouletteWheelStart(false);
       setRouletteWheelBet(bet);
 
@@ -245,16 +245,12 @@ const Roulette = () => {
       <br></br>
       <h1 className="heading">Roulette</h1>
       <div className="roulette-wheel-wrapper">
-        {/* <RouletteWheel
-          start={rouletteWheelStart}
-          winningBet={rouletteWheelBet}
-          onSpinningEnd={handleEndSpin}
-        /> */}
-        <RouletteSpin winPrizeIndex={winningBet} setWinPrizeIndex={setWinningBet} />
+
+        <RouletteSpin winPrizeIndex={winningBet} setWinPrizeIndex={setWinningBet} start={isRouletteWheelSpinning} setStart={setStart}/>
         <div className="buttons">
           <button
             type="button"
-            disabled={isRouletteWheelSpinning}
+            disabled={start}
             onClick={handleDoSpin}
           >
             Let&apos;s go

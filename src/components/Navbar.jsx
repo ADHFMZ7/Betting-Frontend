@@ -18,18 +18,18 @@ import { useState } from "react"
 import { parseJwt } from "../utility.js"
 
 const components = [
-  {
-    title: "Blackjack",
-    href: "/games/blackjack",
-    description:
-      "Play blackjack",
-  },
-  {
-    title: "Slots",
-    href: "/games/slots",
-    description:
-      "Try your luck with the slots!",
-  },
+  // {
+  //   title: "Blackjack",
+  //   href: "/games/blackjack",
+  //   description:
+  //     "Play blackjack",
+  // },
+  // {
+  //   title: "Slots",
+  //   href: "/games/slots",
+  //   description:
+  //     "Try your luck with the slots!",
+  // },
   {
     title: "Daily Spin",
     href: "/games/spin",

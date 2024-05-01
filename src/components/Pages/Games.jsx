@@ -15,20 +15,21 @@ import { Separator } from "@/components/ui/separator"
 const Games = () => {
 
     const games = [
-        { title: "Blackjack", href: "/games/blackjack", description: "Play blackjack", cover: "" },
-        { title: "Slots", href: "/games/slots", description: "Try your luck with the slots!", cover: ""},
+        { title: "Roulette", href: "/games/roulette", description: "Play Roulette!", cover: "" },
         { title: "Daily Spin", href: "/games/spin", description: "Spin the wheel!", cover: ""},
-        { title: "Poker", href: "/games/poker", description: "Texas Hold'em Poker", cover: ""},
+        // { title: "Blackjack", href: "/games/blackjack", description: "Play blackjack", cover: "" },
+        // { title: "Slots", href: "/games/slots", description: "Try your luck with the slots!", cover: ""},
+        // { title: "Poker", href: "/games/poker", description: "Texas Hold'em Poker", cover: ""},
     ]
 
     return (
         <div>
 
-<div className="grid gap-6 w-full max-w-6xl mx-auto px-4 py-6">
+<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
 
-
         {games.map((game, index) => (
+          <Link to={game.href}>
         <Card key={game.title} className="border-2 border-gray-200 dark:border-gray-800">
         <CardContent className="flex aspect-video p-4 items-center justify-center">
           <img
@@ -46,6 +47,7 @@ const Games = () => {
           <div className="text-xs text-gray-500 dark:text-gray-400">{game.description}</div>
         </CardFooter>
       </Card>
+      </Link>
                     ))}
       </div>
     </div>
