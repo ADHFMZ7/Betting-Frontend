@@ -59,7 +59,7 @@ export default function DailySpin() {
     const { token } = useAuth();
   
     useEffect(() => {
-        fetch('https://ootd.aldasouqi.com:8000/game/daily-login', {
+        fetch('https://ootd.aldasouqi.com:8000/game/daily-spin', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

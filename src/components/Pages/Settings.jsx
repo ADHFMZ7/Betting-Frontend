@@ -21,7 +21,7 @@ const Settings = () => {
                 onClick={
                     () => {
                         fetch('https://ootd.aldasouqi.com:8000/game/daily-login', {
-                            method: 'POST',
+                            method: 'GET',
                             headers: {
                                 'Content-Type': 'application/json',
                                 'Authorization': 'Bearer ' + token,
