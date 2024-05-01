@@ -17,6 +17,8 @@ function Signup() {
         dob: '',
         password: '',
     });
+    const [error, setError] = useState(null);
+
     const navigate = useNavigate();
 
     function signup() {
@@ -31,13 +33,20 @@ function Signup() {
               password: input.password
             })
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(data => {
+                    throw new Error(data.detail || 'Something went wrong!');
+                })
+            }     
+            return response.json();
+        })
         .then(data => {
-            console.log(data);
             navigate('/login');
         })
         .catch(error => {
-            alert('An error occurred. Please try again later.')
+            setError(error.message);
+            // alert(error)
         });
     }
 
@@ -106,7 +115,14 @@ function Signup() {
             </form>
         </Card>
         <p className="text-sm text-gray-700 dark:text-gray-300">Already have an account? <Link to="/login" className="text-blue-500">Login</Link></p>
+        {error && (
+                <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                  <strong className="font-bold">Error!</strong>
+                  <span className="block sm:inline"> {error}</span>
+                </div>
+              )}
         </div>
+
     );
 }
 

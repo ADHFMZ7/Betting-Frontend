@@ -42,8 +42,18 @@ function Index() {
         </>
         : 
         <>
-          <Games />
-        </>}
+        <header className="text-center">
+          <h1 className="text-4xl font-bold text-blue-500 dark:text-blue-300 mb-2">Welcome back to BuffyBets</h1>
+          <p className="text-lg text-gray-700 dark:text-gray-300">Ready to continue your gambling journey?</p>
+        </header>
+
+        <main className="mx-auto flex flex-col items-center justify-center">
+          <section className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg text-center">
+            <h2 className="text-2xl font-bold mb-2">Your Games</h2>
+            <Games />
+          </section>
+        </main>
+      </>} 
       </div>
       </>
     );

@@ -10,10 +10,6 @@ let prizes = [...Array(36).keys()].map((index) => ({
     image: "https://github.com/ADHFMZ7/Betting-Frontend/blob/main/src/assets/roulette/" + index + ".png?raw=true",
 }));
 
-// prizes.append({
-//     id: 37,
-//     image: "https://github.com/ADHFMZ7/Betting-Frontend/blob/main/src/assets/roulette/00.png?raw=true",
-// })
 
 const reproductionArray = (array = [], length = 0) => [
   ...Array(length)

@@ -40,7 +40,7 @@ const Roulette = () => {
   const [activeChip, setActiveChip] = useState(Object.keys(chipsMap)[0]);
   const [shouldShowData, setShouldShowData] = useState(false);
   const [winningBet, setWinningBet] = useState(null);
-
+  const [error, setError] = useState(null);
 
   const [start, setStart] = useState(true);
   const { token } = useAuth();
@@ -84,11 +84,23 @@ const Roulette = () => {
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({bets}),
-      }).then((response) => response.json());
-      const bet = response.winning_number;
+      })
+      const data = await response.json();
+      if (!response.ok) {
+
+      setIsRouletteWheelSpinning(false);
+        alert(data.detail);
+        setError(data.detail)
+        return;
+      } 
+      else {
+        console.log('response', data)
+
+      const bet = data.winning_number;
       setStart(false);
-      setWinningBet(response.winning_number);
+      setWinningBet(data.winning_number);
       console.info('gotta win bet', bet);
+      }
     };
   
     prepare();

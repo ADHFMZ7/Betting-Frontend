@@ -39,11 +39,13 @@ export default function Spinner(props) {
             data={props.options}
             className=""
             onStopSpinning={() => {
-              setMustSpin(false);
+              // setMustSpin(false);
               alert("You won " + props.options[props.prizeNumber].option);
             }}
           />
-          <Button className={cn(
+          <Button 
+          disabled={mustSpin}
+          className={cn(
           buttonVariants({ variant: "ghost" }),
           "mr-8 top-4 right-4 md:left-8 md:top-8 ")} onClick={handleSpinClick}>SPIN</Button>
         </div>
