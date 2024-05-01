@@ -5,10 +5,15 @@ import 'react-roulette-pro/dist/index.css';
 
 
 
-const prizes = [...Array(37).keys()].map((index) => ({
+let prizes = [...Array(37).keys()].map((index) => ({
     id: index,
     image: "https://github.com/ADHFMZ7/Betting-Frontend/blob/main/src/assets/roulette/" + index + ".png?raw=true",
 }));
+
+// prizes.append({
+//     id: 37,
+//     image: "https://github.com/ADHFMZ7/Betting-Frontend/blob/main/src/assets/roulette/00.png?raw=true",
+// })
 
 const reproductionArray = (array = [], length = 0) => [
   ...Array(length)
@@ -35,8 +40,8 @@ const RouletteSpin = (props) => {
 
     const winPrizeIndex = props.winPrizeIndex;
     const setWinPrizeIndex = props.setWinPrizeIndex;
-
-  const [start, setStart] = useState(false);
+    const start = props.start;
+    const setStart = props.setStart;
 
   const prizeIndex = prizes.length * 4 + winPrizeIndex;
 
@@ -45,7 +50,7 @@ const RouletteSpin = (props) => {
   };
 
   const handlePrizeDefined = () => {
-    alert('Prize defined' + winPrizeIndex);
+    setStart(false);
   };
 
   return (
