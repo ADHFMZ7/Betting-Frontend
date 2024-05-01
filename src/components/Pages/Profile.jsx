@@ -24,7 +24,7 @@ const Profile = () => {
     React.useEffect(() => {
         if (token) {
             const id = parseJwt(token).id;
-            fetch("http://127.0.0.1:8000/user/" + id, {
+            fetch("https://ootd.aldasouqi.com:8000/user/" + id, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -33,7 +33,7 @@ const Profile = () => {
                 .then((data) => {
                     setUser(data);
                 });
-        fetch("http://127.0.0.1:8000/user/transactions/", {
+        fetch("https://ootd.aldasouqi.com:8000/user/transactions/", {
             headers: {
                 Authorization: `Bearer ${token}`,
             },

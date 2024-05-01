@@ -22,7 +22,7 @@ export default function AuthProvider({ children }) {
         form.append('username', username);
         form.append('password', password);
 
-        const response = await fetch('http://127.0.0.1:8000/auth/login', {
+        const response = await fetch('https://ootd.aldasouqi.com:8000/auth/login', {
             method: 'POST',
             body: form,
         });

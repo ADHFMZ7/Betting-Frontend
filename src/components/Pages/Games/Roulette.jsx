@@ -40,11 +40,13 @@ const Roulette = () => {
   const [activeChip, setActiveChip] = useState(Object.keys(chipsMap)[0]);
   const [shouldShowData, setShouldShowData] = useState(false);
   const [winningBet, setWinningBet] = useState(null);
+
+
   const [start, setStart] = useState(false);
   const { token } = useAuth();
 
   const [isRouletteWheelSpinning, setIsRouletteWheelSpinning] = useState(false);
-  const [rouletteWheelStart, setRouletteWheelStart] = useState(false);
+  // const [rouletteWheelStart, setRouletteWheelStart] = useState(false);
   const [rouletteWheelBet, setRouletteWheelBet] = useState('-1');
 
   useEffect(() => {
@@ -59,12 +61,14 @@ const Roulette = () => {
   }, []);
 
   useEffect(() => {
-    if (rouletteWheelBet === '-1' || rouletteWheelStart === true) {
+    // if (rouletteWheelBet === '-1' || rouletteWheelStart === true) {
+    if (!rouletteWheelBet || start) {
       return;
     }
 
-    setRouletteWheelStart(true);
-  }, [rouletteWheelBet, rouletteWheelStart]);
+    setStart(true);
+  // }, [rouletteWheelBet, rouletteWheelStart]);
+  }, [rouletteWheelBet, start]);
 
 
   useEffect(() => {
@@ -73,7 +77,7 @@ const Roulette = () => {
     }
   
     const prepare = async () => {
-      const response = await fetch('http://127.0.0.1:8000/game/roulette', {
+      const response = await fetch('https://ootd.aldasouqi.com:8000/game/roulette', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -82,14 +86,9 @@ const Roulette = () => {
         body: JSON.stringify({bets}),
       }).then((response) => response.json());
       const bet = response.winning_number;
+      setStart(false);
       setWinningBet(response.winning_number);
-      setStart(true);
-      // response.winning_number;
-  
       console.info('gotta win bet', bet);
-      // setRouletteWheelStart(false);
-      setRouletteWheelBet(bet);
-
     };
   
     prepare();
@@ -195,7 +194,8 @@ const Roulette = () => {
       <Navbar />
       <br></br>
       <div className="roulette-wheel-wrapper">
-        <RouletteSpin winPrizeIndex={winningBet} setWinPrizeIndex={setWinningBet} start={isRouletteWheelSpinning} setStart={setStart}/>
+        {/* <RouletteSpin winPrizeIndex={winningBet} setWinPrizeIndex={setWinningBet} start={start} setStart={setIsRouletteWheelSpinning}/> */}
+        <RouletteSpin winPrizeIndex={winningBet} start={start} handleEndSpin={handleEndSpin}/>
       </div>
       <div className="roulette-wrapper">
         <RouletteTable onBet={handleOnBet} bets={bets} />

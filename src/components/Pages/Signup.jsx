@@ -20,7 +20,7 @@ function Signup() {
     const navigate = useNavigate();
 
     function signup() {
-        fetch('http://127.0.0.1:8000/auth/register', {
+        fetch('https://ootd.aldasouqi.com:8000/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
