@@ -42,7 +42,7 @@ const Roulette = () => {
   const [winningBet, setWinningBet] = useState(null);
 
 
-  const [start, setStart] = useState(false);
+  const [start, setStart] = useState(true);
   const { token } = useAuth();
 
   const [isRouletteWheelSpinning, setIsRouletteWheelSpinning] = useState(false);
