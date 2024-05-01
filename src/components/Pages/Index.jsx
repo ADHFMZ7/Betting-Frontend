@@ -36,7 +36,7 @@ function Index() {
             <p className="text-gray-700 dark:text-gray-300">Experience the thrill of gambling with BuffyBets. We offer a wide range of exciting games and betting options to keep you entertained.</p>
           </section>
           <section className="mt-8">
-              <p className="text-gray-700 dark:text-gray-300 mb-4">Join BuffyBets today and start your gambling journey. Sign up now to enjoy exclusive bonuses and promotions.</p>
+              <p className="text-gray-700 dark:text-gray-300 mb-4">Join BuffyBets today and start your gambling journey. <Link to="/signup">Sign Up</Link> now to enjoy exclusive bonuses and promotions.</p>
           </section>
         </main>
         </>

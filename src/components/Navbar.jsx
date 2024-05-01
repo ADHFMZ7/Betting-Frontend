@@ -77,8 +77,9 @@ export default function Navbar() {
         </Link>
       </div>
       <div className="basis-1/3 m-2 flex flex-row">
-        <div className="basis-1/3"></div>
-        <NavigationMenu className="basis-1/3">
+         <div className="basis-1/3"></div>
+
+        {token !== null ? <NavigationMenu className="basis-1/3">
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger><h1 className="text-2xl">Games</h1></NavigationMenuTrigger>
@@ -98,8 +99,8 @@ export default function Navbar() {
             </NavigationMenuItem>
 
           </NavigationMenuList>
-        </NavigationMenu> 
-      </div>
+        </NavigationMenu> : <></>}
+      </div> 
 
 
       <div className="basis-1/3 flex justify-end m-2">

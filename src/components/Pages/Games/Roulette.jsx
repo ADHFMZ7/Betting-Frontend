@@ -1,285 +1,3 @@
-// // import React from 'react'
-// // import { Wheel } from 'react-custom-roulette'
-// // import { useState } from 'react'
-
-// // const data = [
-// //   { option: '00', textColor: 'white', style: { backgroundColor: 'green',}},
-// //   { option: '27', textColor: 'white', style: { backgroundColor: 'red' } },
-// //   { option: '10', textColor: 'white', style: { backgroundColor: 'black'}},
-// //   { option: '25', textColor: 'white', style: { backgroundColor: 'red' } },
-// //   { option: '29', textColor: 'white', style: { backgroundColor: 'black'}},
-// //   { option: '12', textColor: 'white', style: { backgroundColor: 'red' } },
-// //   { option: '8', textColor: 'white', style: { backgroundColor: 'black'}},
-// //   { option: '19', textColor: 'white', style: { backgroundColor: 'red' } },
-// //   { option: '31', textColor: 'white', style: { backgroundColor: 'black'}},
-// //   { option: '18', textColor: 'white', style: { backgroundColor: 'red' } },
-// //   { option: '6', textColor: 'white', style: { backgroundColor: 'black'}},
-// //   { option: '21', textColor: 'white', style: { backgroundColor: 'red' } },
-// //   { option: '33', textColor: 'white', style: { backgroundColor: 'black'}},
-// //   { option: '16', textColor: 'white', style: { backgroundColor: 'red' } },
-// //   { option: '4', textColor: 'white', style: { backgroundColor: 'black'}},
-// //   { option: '23', textColor: 'white', style: { backgroundColor: 'red' } },
-// //   { option: '35', textColor: 'white', style: { backgroundColor: 'black'}},
-// //   { option: '14', textColor: 'white', style: { backgroundColor: 'red' } },
-// //   { option: '2', textColor: 'white', style: { backgroundColor: 'black'}},
-// //   { option: '0', textColor: 'white', style: { backgroundColor: 'green' } },
-// //   { option: '28', textColor: 'white', style: { backgroundColor: 'black'}},
-// //   { option: '9', textColor: 'white', style: { backgroundColor: 'red' } },
-// //   { option: '26', textColor: 'white', style: { backgroundColor: 'black'}},
-// //   { option: '30', textColor: 'white', style: { backgroundColor: 'red' } },
-// //   { option: '11', textColor: 'white', style: { backgroundColor: 'black'}},
-// //   { option: '7', textColor: 'white', style: { backgroundColor: 'red' } },
-// //   { option: '20', textColor: 'white', style: { backgroundColor: 'black'}},
-// //   { option: '32', textColor: 'white', style: { backgroundColor: 'red' } },
-// //   { option: '17', textColor: 'white', style: { backgroundColor: 'black'}},
-// //   { option: '5', textColor: 'white', style: { backgroundColor: 'red' } },
-// //   { option: '22', textColor: 'white', style: { backgroundColor: 'black'}},
-// //   { option: '34', textColor: 'white', style: { backgroundColor: 'red' } },
-// //   { option: '15', textColor: 'white', style: { backgroundColor: 'black'}},
-// //   { option: '3', textColor: 'white', style: { backgroundColor: 'red' } },
-// //   { option: '24', textColor: 'white', style: { backgroundColor: 'black'}},
-// //   { option: '13', textColor: 'white', style: { backgroundColor: 'red' } },
-// //   { option: '1', textColor: 'white', style: { backgroundColor: 'black'}},
-// // ]
-
-// // export default function Roulette(){
-
-// //     const [mustSpin, setMustSpin] = useState(false);
-// //     const [prizeNumber, setPrizeNumber] = useState(0);
-  
-// //     const handleSpinClick = () => {
-// //       if (!mustSpin) {
-
-// //         const prizeNumber = fetch('http://localhost:8000/games/', {
-// //           method: 'POST',
-// //           headers: {
-// //             'Content-Type': 'application/json',
-// //         },
-// //       }).then(response => response.json()).then(data => {
-// //           console.log(data);
-// //         }).catch(error => {
-// //           console.error('Error:', error);
-// //         }
-// //         );
-
-// //         setPrizeNumber(prizeNumber);
-// //         setMustSpin(true);
-// //         alert(`You won ${props.prizes[prizeNumber].option}`)
-// //       }
-// //     }
-//   // import React, { useState } from 'react';
-
-//   // export default function Roulette() {
-//   //   const [mustSpin, setMustSpin] = useState(false);
-//   //   const [prizeNumber, setPrizeNumber] = useState(0);
-//   //   const [selectedOption, setSelectedOption] = useState('');
-
-//   //   const handleOptionSelect = (option) => {
-//   //     setSelectedOption(option);
-//   //   };
-
-//   //   return (
-//   //     <>
-//   //       <div>
-//   //         {data.map((option) => (
-//   //           <button
-//   //             key={option.option}
-//   //             style={option.style}
-//   //             onClick={() => handleOptionSelect(option.option)}
-//   //           >
-//   //             {option.option}
-//   //           </button>
-//   //         ))}
-//   //       </div>
-//   //       <button onClick={handleSpinClick}>SPIN</button>
-//   //     </>
-//   //   );
-//   // }
-
-// //   import { useState } from 'react';
-
-// // import RoulettePro from 'react-roulette-pro';
-// // import 'react-roulette-pro/dist/index.css';
-// // import Navbar from '../../Navbar';
-
-// // const prizes = [
-// //   {
-// //     title: 'Prize 0',
-// //     image: 'one.png',
-// //   },
-// // ];
-
-// // const winPrizeIndex = 0;
-
-// // const reproductionArray = (array = [], length = 0) => [
-// //   ...Array(length)
-// //     .fill('_')
-// //     .map(() => array[Math.floor(Math.random() * array.length)]),
-// // ];
-
-// // const reproducedPrizeList = [
-// //   ...prizes,
-// //   ...reproductionArray(prizes, prizes.length * 3),
-// //   ...prizes,
-// //   ...reproductionArray(prizes, prizes.length),
-// // ];
-
-// // const generateId = () =>
-// //   `${Date.now().toString(36)}-${Math.random().toString(36).substring(2)}`;
-
-// // const prizeList = reproducedPrizeList.map((prize) => ({
-// //   ...prize,
-// //   id: typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : generateId(),
-// // }));
-
-// // const Roulette = () => {
-// //   const [start, setStart] = useState(false);
-// //   const [bet, setBet] = useState(0); // New state for the bet
-
-// //   const prizeIndex = prizes.length * 4 + winPrizeIndex;
-
-// //   const handleStart = () => {
-// //     setStart((prevState) => !prevState);
-// //   };
-
-// //   const handlePrizeDefined = () => {
-// //     alert('You won ' + prizes[winPrizeIndex].title);
-// //   };
-
-// //   // New function to handle bet changes
-// //   const handleBetChange = (event) => {
-// //     setBet(event.target.value);
-// //   };
-//   import React from 'react';
-//   import RoulettePro from 'react-roulette-pro';
-//   import { RouletteTable } from 'react-casino-roulette';
-//   import { useState } from 'react';
-//   import 'react-roulette-pro/dist/index.css';
-//   import Navbar from '../../Navbar';
-
-
-//   const prizes = [
-//     {
-//       title: 'Prize 0',
-//       image: 'one.png',
-//     },
-//   ];
-
-//   const winPrizeIndex = 0;
-
-//   const reproductionArray = (array = [], length = 0) => [
-//     ...Array(length)
-//       .fill('_')
-//       .map(() => array[Math.floor(Math.random() * array.length)]),
-//   ];
-
-//   const reproducedPrizeList = [
-//     ...prizes,
-//     ...reproductionArray(prizes, prizes.length * 3),
-//     ...prizes,
-//     ...reproductionArray(prizes, prizes.length),
-//   ];
-
-//   const generateId = () =>
-//     `${Date.now().toString(36)}-${Math.random().toString(36).substring(2)}`;
-
-//   const prizeList = reproducedPrizeList.map((prize) => ({
-//     ...prize,
-//     id: typeof crypto.randomUUID === 'function' ? crypto.randomUUID() : generateId(),
-//   }));
-
-//   const Roulette = () => {
-//     const [start, setStart] = useState(false);
-//     const [bet, setBet] = useState(0); // New state for the bet
-//     const prizeIndex = prizes.length * 4 + winPrizeIndex;
-
-//     const handleStart = () => {
-//       setStart((prevState) => !prevState);
-//     };
-
-//     const handlePrizeDefined = () => {
-//       alert('You won ' + prizes[winPrizeIndex].title);
-//     };
-
-//     // New function to handle bet changes
-//     const handleBetChange = (event) => {
-//       setBet(event.target.value);
-//     };
-
-//     return (
-//       <>
-//         <Navbar />
-//         <h1 className="text-3xl font-bold">Roulette</h1>
-
-
-//         <RoulettePro
-//           prizes={prizeList}
-//           prizeIndex={prizeIndex}
-//           start={start}
-//           onPrizeDefined={handlePrizeDefined}
-//           options={{
-//             stopInCenter: true,
-//           }}
-//         />
-
-//         <Table></Table>
-
-//         <button
-//           onClick={handleStart}
-//           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-//         >
-//           Start
-//         </button>
-//       </>
-//     );
-//   };
-
-// const Table = () => {
-//   const [bets, setBets] = useState({});
-
-//   const handleBet = (betData) => {
-//     const { id } = betData;
-
-//     setBets((prevState) => ({
-//       ...prevState,
-//       [id]: {
-//         icon: 'https://cdn-icons-png.flaticon.com/512/10095/10095709.png',
-//     },
-//   }));
-// };
-
-//   return (
-//     <div style={{ maxWidth: 800, margin: 'auto' }}>
-//       <RouletteTable bets={bets} onBet={handleBet} />
-//     </div>
-//   );
-// };
-
-// //   export default Roulette;
-// //   return (
-// //     <>
-// //       <Navbar />
-// //       <h1>Roulette</h1>
-// //       <h2>Place your bet</h2>
-// //       <p>Current bet: {bet}</p>
-
-
-// //       <RoulettePro
-// //         prizes={prizeList}
-// //         prizeIndex={prizeIndex}
-// //         start={start}
-// //         onPrizeDefined={handlePrizeDefined}
-// //         options={{
-// //           stopInCenter: true,
-// //         }}
-// //       />
-// //       <input type="number" value={bet} onChange={handleBetChange} /> {/* New input for the bet */}
-// //       <button onClick={handleStart}>Start</button>
-// //     </>
-// //   );
-// // };
-
-
 // export default Roulette;
 
 /* eslint-disable jsx-a11y/no-static-element-interactions */
@@ -291,12 +9,14 @@ import 'react-casino-roulette/dist/index.css';
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 
+import { useAuth } from '../../AuthProvider';
 import whiteChip from '../../../assets/white-chip.png';
 import blueChip from '../../../assets/blue-chip.png';
 import blackChip from '../../../assets/black-chip.png';
 import cyanChip from '../../../assets/cyan-chip.png';
 import Navbar from '../../Navbar';
-
+import { set } from 'react-hook-form';
+import RouletteSpin from '../RouletteSpin';
 
 // import './App.css';
 
@@ -333,6 +53,8 @@ const Roulette = () => {
   const [betHistory, setBetHistory] = useState([]);
   const [activeChip, setActiveChip] = useState(Object.keys(chipsMap)[0]);
   const [shouldShowData, setShouldShowData] = useState(false);
+  const [winningBet, setWinningBet] = useState(null);
+  const { token } = useAuth();
 
   const [isRouletteWheelSpinning, setIsRouletteWheelSpinning] = useState(false);
   const [rouletteWheelStart, setRouletteWheelStart] = useState(false);
@@ -357,25 +79,73 @@ const Roulette = () => {
     setRouletteWheelStart(true);
   }, [rouletteWheelBet, rouletteWheelStart]);
 
+
   useEffect(() => {
     if (isRouletteWheelSpinning === false) {
       return;
     }
-
+  
     const prepare = async () => {
-      const bet = await API.getRandomBet();
+      const response = await fetch('http://127.0.0.1:8000/game/roulette', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({bets}),
+      }).then((response) => response.json());
+      const bet = response.winning_number;
+      setWinningBet(response.winning_number);
+      // response.winning_number;
+  
       console.info('gotta win bet', bet);
-
-      setRouletteWheelStart(false);
+      alert("Spun a " + bet + 
+      " and you won " + response.winnings + " chips!")
+      // setRouletteWheelStart(false);
       setRouletteWheelBet(bet);
-    };
 
+    };
+  
     prepare();
   }, [isRouletteWheelSpinning]);
+  
+
+  // useEffect(() => {
+  //   if (isRouletteWheelSpinning === false) {
+  //     return;
+  //   }
+
+  //   const prepare = async () => {
+  //     const response = await fetch('http://127.0.0.1:8000/game/roulette', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //       body: JSON.stringify({bets}),
+  //     }).then((response) => response.json());
+  //     const bet = response.winning_number;
+
+  //     console.info('gotta win bet', bet);
+
+  //     setRouletteWheelStart(false);
+  //     setRouletteWheelBet(bet);
+  //   };
+
+  //   prepare();
+  // }, [isRouletteWheelSpinning]);
 
   const handleDoSpin = () => {
+    // send bet to the server and get the spin and winnings
+
+    // fetch('http://127.0.0.1:8000/games/roulette', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+
     setIsRouletteWheelSpinning(true);
-  };
+  }
 
   const handleEndSpin = () => {
     setIsRouletteWheelSpinning(false);
@@ -475,11 +245,12 @@ const Roulette = () => {
       <br></br>
       <h1 className="heading">Roulette</h1>
       <div className="roulette-wheel-wrapper">
-        <RouletteWheel
+        {/* <RouletteWheel
           start={rouletteWheelStart}
           winningBet={rouletteWheelBet}
           onSpinningEnd={handleEndSpin}
-        />
+        /> */}
+        <RouletteSpin winPrizeIndex={winningBet} setWinPrizeIndex={setWinningBet} />
         <div className="buttons">
           <button
             type="button"
@@ -488,9 +259,11 @@ const Roulette = () => {
           >
             Let&apos;s go
           </button>
-          {/* <button type="button" onClick={handleDoSpin}>
+          <button type="button" onClick={() => {
+            handleDoSpin();
+          }}>
             Spin
-          </button> */}
+          </button>
         </div>
       </div>
       <div className="roulette-wrapper">
@@ -532,6 +305,14 @@ const Roulette = () => {
               "mr-8 top-4 right-4 md:left-8 md:top-8 text-2xl"
             )}>
               {shouldShowData === false ? 'Show' : 'Hide'} data
+            </button>
+            <button type="button" onClick={handleDoSpin}
+            disabled={isRouletteWheelSpinning} 
+            className={cn(
+              buttonVariants({ variant: "ghost" }),
+              "mr-8 top-4 right-4 md:left-8 md:top-8 text-2xl"
+            )}>
+              Spin
             </button>
           </div>
         </div>

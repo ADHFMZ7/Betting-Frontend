@@ -98,7 +98,6 @@ const Login = () => {
 
     </Card>
 
-     <p className="text-sm text-gray-700 dark:text-gray-300">Don't have an account? <Link to="/signup" className="text-blue-500">Sign up</Link></p>
      {error && (
                 <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
                   <strong className="font-bold">Error!</strong>
