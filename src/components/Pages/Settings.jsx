@@ -20,7 +20,7 @@ const Settings = () => {
                                 'Authorization': 'Bearer ' + token,
                             }
                         }).then(response => response.json()).then(data => {
-                            console.log(data);
+                            alert("You have received 1000 free BuffyCoins!")
                         }
                         );
                     }
