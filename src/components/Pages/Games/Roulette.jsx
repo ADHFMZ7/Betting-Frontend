@@ -1,30 +1,16 @@
-// export default Roulette;
-
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from 'react';
 import { RouletteTable, RouletteWheel } from 'react-casino-roulette';
 import 'react-casino-roulette/dist/index.css';
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
-
 import { useAuth } from '../../AuthProvider';
 import whiteChip from '../../../assets/white-chip.png';
 import blueChip from '../../../assets/blue-chip.png';
 import blackChip from '../../../assets/black-chip.png';
 import cyanChip from '../../../assets/cyan-chip.png';
 import Navbar from '../../Navbar';
-import { set } from 'react-hook-form';
 import RouletteSpin from '../RouletteSpin';
 
-// import './App.css';
-
-const API = {
-  getRandomBet: async () => {
-    return getRandomRouletteWinBet();
-  },
-};
 
 const chipsMap = {
   whiteChip: {
@@ -109,48 +95,13 @@ const Roulette = () => {
     prepare();
   }, [isRouletteWheelSpinning]);
   
-
-  // useEffect(() => {
-  //   if (isRouletteWheelSpinning === false) {
-  //     return;
-  //   }
-
-  //   const prepare = async () => {
-  //     const response = await fetch('http://127.0.0.1:8000/game/roulette', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //       body: JSON.stringify({bets}),
-  //     }).then((response) => response.json());
-  //     const bet = response.winning_number;
-
-  //     console.info('gotta win bet', bet);
-
-  //     setRouletteWheelStart(false);
-  //     setRouletteWheelBet(bet);
-  //   };
-
-  //   prepare();
-  // }, [isRouletteWheelSpinning]);
-
   const handleDoSpin = () => {
-    // send bet to the server and get the spin and winnings
-
-    // fetch('http://127.0.0.1:8000/games/roulette', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-
     setIsRouletteWheelSpinning(true);
   }
 
   const handleEndSpin = () => {
     setIsRouletteWheelSpinning(false);
   };
-  // end you are here for
 
   const undoLastBet = () => {
     if (betHistory.length === 0) {
@@ -243,24 +194,8 @@ const Roulette = () => {
     <div>
       <Navbar />
       <br></br>
-      <h1 className="heading">Roulette</h1>
       <div className="roulette-wheel-wrapper">
-
         <RouletteSpin winPrizeIndex={winningBet} setWinPrizeIndex={setWinningBet} start={isRouletteWheelSpinning} setStart={setStart}/>
-        <div className="buttons">
-          <button
-            type="button"
-            disabled={start}
-            onClick={handleDoSpin}
-          >
-            Let&apos;s go
-          </button>
-          <button type="button" onClick={() => {
-            handleDoSpin();
-          }}>
-            Spin
-          </button>
-        </div>
       </div>
       <div className="roulette-wrapper">
         <RouletteTable onBet={handleOnBet} bets={bets} />
@@ -294,13 +229,6 @@ const Roulette = () => {
               "mr-8 top-4 right-4 md:left-8 md:top-8 text-2xl"
             )}>
               Clean
-            </button>
-            <button type="button" onClick={handleShowData}
-            className={cn(
-              buttonVariants({ variant: "ghost" }),
-              "mr-8 top-4 right-4 md:left-8 md:top-8 text-2xl"
-            )}>
-              {shouldShowData === false ? 'Show' : 'Hide'} data
             </button>
             <button type="button" onClick={handleDoSpin}
             disabled={isRouletteWheelSpinning} 

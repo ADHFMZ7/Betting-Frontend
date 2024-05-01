@@ -72,7 +72,7 @@ export default function Navbar() {
     <div className="flex flex-row top-0 h-14">
       <div className="basis-1/3 flex flex-row">
         <Link to="/" className="basis-1/3 flex flex-row">
-          <img src="https://github.com/ADHFMZ7/TuffyBets/blob/main/frontend/Wooly-Mammoth-modified.png?raw=true" alt="BuffyBets" className="w-12 h-12 ml-5 mt-1" />
+          <img src="https://github.com/ADHFMZ7/TuffyBets/blob/84406662d57b07b06a7a43af8e20964e21899960/frontend/Wooly-Mammoth-modified.png?raw=true" alt="BuffyBets" className="w-12 h-12 ml-5 mt-1" />
           <h1 className="text-2xl font-bold text-blue-500 dark:text-white mt-3 ml-1" >BuffyBets</h1>
         </Link>
       </div>

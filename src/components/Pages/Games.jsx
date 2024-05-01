@@ -15,7 +15,7 @@ import { Separator } from "@/components/ui/separator"
 const Games = () => {
 
     const games = [
-        { title: "Roulette", href: "/games/roulette", description: "Play Roulette!", cover: "" },
+        { title: "Roulette", href: "/games/roulette", description: "Play Roulette!", cover: ""},
         { title: "Daily Spin", href: "/games/spin", description: "Spin the wheel!", cover: ""},
         // { title: "Blackjack", href: "/games/blackjack", description: "Play blackjack", cover: "" },
         // { title: "Slots", href: "/games/slots", description: "Try your luck with the slots!", cover: ""},
@@ -30,7 +30,7 @@ const Games = () => {
 
         {games.map((game, index) => (
           <Link to={game.href}>
-        <Card key={game.title} className="border-2 border-gray-200 dark:border-gray-800">
+        <Card key={index} className="border-2 border-gray-200 dark:border-gray-800">
         <CardContent className="flex aspect-video p-4 items-center justify-center">
           <img
             alt="Game cover"

@@ -61,7 +61,6 @@ const RouletteSpin = (props) => {
         start={start}
         onPrizeDefined={handlePrizeDefined}
       />
-      <button onClick={handleStart}>Start</button>
     </>
   );
 };
