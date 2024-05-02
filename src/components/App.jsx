@@ -38,50 +38,30 @@ const router = createBrowserRouter([{
   <Profile />
 </ProtectedRoute>,
 },
-// {
-//   path: '/games',
-//   element: <ProtectedRoute>
-//             <Games />
-//           </ProtectedRoute>,
-    // children: [
-    //   // {
-    //   //   path: 'poker',
-    //   //   element: <Poker />,
-    //   // },
-    //   // {
-    //   //   path: 'blackjack',
-    //   //   element: <Blackjack />,
-    //   // },
-    //   {
-    //     path: 'roulette',
-    //     element: <Roulette />,
-    //   },
-  // ],
-    // },
-    {
-      path: '/games/roulette',
-      element: <ProtectedRoute>
-        <Roulette />
-      </ProtectedRoute>,
-    },
-  {
-    path: '/games/spin',
-    element: <ProtectedRoute>
-      <DailySpin />
-    </ProtectedRoute>,
-  },
-  {
-    path: '/games/slots',
-    element: <ProtectedRoute>
-      <Slots />
-    </ProtectedRoute>,
-  },
-  {
-    path: '/settings',
-    element: <ProtectedRoute>
-      <Settings />
-    </ProtectedRoute>,
-  },
+{
+  path: '/games/roulette',
+  element: <ProtectedRoute>
+    <Roulette />
+  </ProtectedRoute>,
+},
+{
+path: '/games/spin',
+element: <ProtectedRoute>
+  <DailySpin />
+</ProtectedRoute>,
+},
+{
+path: '/games/slots',
+element: <ProtectedRoute>
+  <Slots />
+</ProtectedRoute>,
+},
+{
+path: '/settings',
+element: <ProtectedRoute>
+  <Settings />
+</ProtectedRoute>,
+},
 
 ])
 

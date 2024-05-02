@@ -94,12 +94,11 @@ const Roulette = () => {
         return;
       } 
       else {
-        console.log('response', data)
+        // console.log('response', data)
 
       const bet = data.winning_number;
       setStart(false);
       setWinningBet(data.winning_number);
-      console.info('gotta win bet', bet);
       }
     };
   
@@ -116,7 +115,7 @@ const Roulette = () => {
 
   const undoLastBet = () => {
     if (betHistory.length === 0) {
-      console.error('Nothing to undo');
+      // console.error('Nothing to undo');
       return;
     }
 
@@ -136,7 +135,7 @@ const Roulette = () => {
       state[lastBetId].icon = prevIcon;
       state[lastBetId].number -= value;
 
-      console.log('state', state, 'lastBetId', lastBetId, 'value', value)
+      // console.log('state', state, 'lastBetId', lastBetId, 'value', value)
 
       return state;
     });
@@ -177,14 +176,14 @@ const Roulette = () => {
 
 
   const handleOnBet = ({ bet, payload, id }) => {
-    console.info(
-      'handleOnBet',
-      `bet ===> ${bet}`,
-      'payload ===>',
-      payload,
-      'id ===> ',
-      id,
-    );
+    // console.info(
+    //   'handleOnBet',
+    //   `bet ===> ${bet}`,
+    //   'payload ===>',
+    //   payload,
+    //   'id ===> ',
+    //   id,
+    // );
 
     addBet(id);
   };
@@ -274,9 +273,9 @@ const getRandomRouletteWinBet = () => {
     window.crypto.getRandomValues(new Uint32Array(1))[0] %
     possibleWinBets.length;
 
-    console.log('randomIndex', randomIndex)
-    console.log('possibleWinBets', possibleWinBets)
-    console.log('possibleWinBets[randomIndex]', possibleWinBets[randomIndex])
+    // console.log('randomIndex', randomIndex)
+    // console.log('possibleWinBets', possibleWinBets)
+    // console.log('possibleWinBets[randomIndex]', possibleWinBets[randomIndex])
 
   return possibleWinBets[randomIndex];
 };

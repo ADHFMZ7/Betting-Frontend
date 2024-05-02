@@ -15,8 +15,8 @@ import { Separator } from "@/components/ui/separator"
 const Games = () => {
 
     const games = [
-        { title: "Roulette", href: "/games/roulette", description: "Play Roulette!", cover: ""},
-        { title: "Daily Spin", href: "/games/spin", description: "Spin the wheel!", cover: ""},
+        { title: "Roulette", href: "/games/roulette", description: "Play Roulette!", cover: "https://github.com/ADHFMZ7/TuffyBets/blob/main/Buffy%20Logo%202.png?raw=true"},
+        { title: "Daily Spin", href: "/games/spin", description: "Spin the wheel!", cover: "https://github.com/ADHFMZ7/TuffyBets/blob/main/Buffy%20Logo%201.png?raw=true"},
         // { title: "Blackjack", href: "/games/blackjack", description: "Play blackjack", cover: "" },
         // { title: "Slots", href: "/games/slots", description: "Try your luck with the slots!", cover: ""},
         // { title: "Poker", href: "/games/poker", description: "Texas Hold'em Poker", cover: ""},
@@ -36,7 +36,7 @@ const Games = () => {
             alt="Game cover"
             className="aspect-video-outer object-cover rounded-lg"
             height="68"
-            src="/placeholder.svg"
+            src={game.cover}
             width="120"
           />
 
